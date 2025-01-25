@@ -1,6 +1,7 @@
-'use client'
+"use client";
+import React from "react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,21 +9,29 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from 'lucide-react'
-import Link from "next/link"
-import { useState } from "react"
+} from "@/components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import Image from "next/image";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#1C1C1E]/95 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#1C1C1E]/95 backdrop-blur-md text-white">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold">
+          <Link href="/" className="text-2xl font-bold flex items-center">
+            <Image
+              src={"/AppIcon.svg"}
+              width={0}
+              height={0}
+              alt="App Logo"
+              className="w-auto h-10 mr-2"
+            />
             ChatPro
           </Link>
 
@@ -31,7 +40,9 @@ export function Header() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-[#2C2C2E]">Features</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-transparent hover:bg-[#2C2C2E]">
+                    Features
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                       <li className="row-span-3">
@@ -50,10 +61,16 @@ export function Header() {
                       <ListItem href="/features/chat" title="AI Chat">
                         Advanced conversation capabilities
                       </ListItem>
-                      <ListItem href="/features/images" title="Image Generation">
+                      <ListItem
+                        href="/features/images"
+                        title="Image Generation"
+                      >
                         Create stunning visuals instantly
                       </ListItem>
-                      <ListItem href="/features/documents" title="Document Analysis">
+                      <ListItem
+                        href="/features/documents"
+                        title="Document Analysis"
+                      >
                         Process and analyze any document
                       </ListItem>
                     </ul>
@@ -78,13 +95,24 @@ export function Header() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" asChild>
+          <div className="hidden md:flex items-center">
+            <Button
+              className="pl-0 hover:bg-transparent"
+              variant="ghost"
+              asChild
+            >
               <Link href="/login">Log In</Link>
             </Button>
-            <Button className="bg-[#0066FF] hover:bg-[#0066FF]/90" asChild>
-              <Link href="/signup">Start for Free</Link>
-            </Button>
+            <div className="card-wrapper h-10 w-32">
+              <div className="card-content flex items-center justify-center">
+                <Button
+                  className="bg-transparent hover:bg-transparent text-white"
+                  asChild
+                >
+                  <Link href="/signup">Start for Free</Link>
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -95,7 +123,10 @@ export function Header() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-[#1C1C1E]/95 backdrop-blur-md border-l border-white/10">
+            <SheetContent
+              side="right"
+              className="w-[300px] bg-[#1C1C1E]/95 backdrop-blur-md border-l border-white/10"
+            >
               <nav className="flex flex-col space-y-4">
                 <Link
                   href="/features"
@@ -119,11 +150,15 @@ export function Header() {
                   Compare Plans
                 </Link>
                 <div className="pt-4 flex flex-col space-y-4">
-                  <Button variant="ghost" asChild onClick={() => setIsOpen(false)}>
+                  <Button
+                    variant="ghost"
+                    asChild
+                    onClick={() => setIsOpen(false)}
+                  >
                     <Link href="/login">Log In</Link>
                   </Button>
                   <Button
-                    className="bg-[#0066FF] hover:bg-[#0066FF]/90"
+                    className="bg-[#0066FF] hover:bg-[#0066FF]/90 text-white"
                     asChild
                     onClick={() => setIsOpen(false)}
                   >
@@ -136,9 +171,10 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ListItem = ({ className, title, children, ...props }: any) => {
   return (
     <li>
@@ -154,6 +190,5 @@ const ListItem = ({ className, title, children, ...props }: any) => {
         </Link>
       </NavigationMenuLink>
     </li>
-  )
-}
-
+  );
+};

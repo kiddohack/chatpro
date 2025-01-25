@@ -1,7 +1,14 @@
-import { Button } from "@/components/ui/button"
-import { Instagram, Linkedin, Mail, InstagramIcon as TiktokIcon, Twitter, Youtube } from 'lucide-react'
-import Image from "next/image"
-import Link from "next/link"
+import React from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Instagram,
+  Linkedin,
+  Mail,
+  InstagramIcon as TiktokIcon,
+  Twitter,
+  Youtube,
+} from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -11,7 +18,7 @@ export function Footer() {
           <Link href="/" className="text-2xl font-bold">
             ChatPro
           </Link>
-          
+
           <div className="flex items-center gap-6">
             <Link href="#" className="text-gray-400 hover:text-[#0066FF]">
               <Twitter className="w-5 h-5" />
@@ -35,13 +42,15 @@ export function Footer() {
             </Link>
           </div>
 
-          <Button variant="ghost" className="text-gray-400 hover:text-[#0066FF] gap-2">
+          <Button
+            variant="ghost"
+            className="text-gray-400 hover:text-[#0066FF] gap-2"
+          >
             <Mail className="w-5 h-5" />
             Contact Us
           </Button>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

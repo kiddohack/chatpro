@@ -1,34 +1,59 @@
-'use client'
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, CheckCircle2, FileText, ImageIcon, Laptop, MessageSquare, Search, Smartphone, Star, Zap } from 'lucide-react'
-import Image from "next/image"
-import { useState } from "react"
-import { UseCases } from './components/use-cases'
-import Features from './components/features'
-import { FAQ } from './components/faq'
-import { Newsletter } from './components/newsletter'
-import { Footer } from './components/footer'
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  ArrowRight,
+  CheckCircle2,
+  // FileText,
+  // ImageIcon,
+  // Laptop,
+  // MessageSquare,
+  // Search,
+  // Smartphone,
+  Star,
+  // Zap,
+} from "lucide-react";
+import Image from "next/image";
+import { UseCases } from "./components/use-cases";
+import Features from "./components/features";
+import { FAQ } from "./components/faq";
+import { Newsletter } from "./components/newsletter";
+import { Footer } from "./components/footer";
 
 export default function LandingPage() {
-  const [activeCategory, setActiveCategory] = useState('social')
+  // const [activeCategory, setActiveCategory] = useState("social");
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="relative px-4 pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0066FF]/10 to-transparent" />
         <div className="container relative mx-auto max-w-6xl">
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Take your <span className="text-[#0066FF]">writing</span>
-              <br />
-              to the next level with ChatPro
-            </h1>
+            <div className="flex flex-col items-center justify-center text-4xl md:text-6xl font-bold">
+              <div className="font-extrabold text-3xl md:text-6xl">
+                Take your{" "}
+                <span className="text-indigo-500 inline-flex flex-col overflow-hidden h-10 md:h-20">
+                  <ul className="block animate-text-slide text-left leading-tight [&_li]:block">
+                    <li>writing</li>
+                    <li>cooking</li>
+                    <li>marketing</li>
+                    <li>traveling</li>
+                    <li>ideas</li>
+                    <li aria-hidden="true">writing</li>
+                  </ul>
+                </span>
+              </div>
+              <h1 className="text-3xl md:text-6xl font-bold mb-6">
+                to the next level with ChatPro
+              </h1>
+            </div>
             <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-              Experience the power of AI-assisted writing. Generate, edit, and enhance your content with just a few clicks.
+              Experience the power of AI-assisted writing. Generate, edit, and
+              enhance your content with just a few clicks.
             </p>
             <Button size="lg" className="bg-[#0066FF] hover:bg-[#0066FF]/90">
               Try Now <ArrowRight className="ml-2" />
@@ -51,20 +76,33 @@ export default function LandingPage() {
 
       {/* Infinite Logo Scroll */}
       <section className="py-16 border-t border-white/10 overflow-hidden">
-        <h3 className="text-center text-xl font-semibold text-white mb-8">
+        <h3 className="text-center text-2xl font-semibold text-white mb-8">
           See Who's Talking About Us
         </h3>
         <div className="relative">
-          <div className="flex space-x-12 animate-scroll">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="flex space-x-12 min-w-full">
-                <LogoItem src="/placeholder.svg?height=40&width=150" name="TechCrunch" />
-                <LogoItem src="/placeholder.svg?height=40&width=150" name="Forbes" />
-                <LogoItem src="/placeholder.svg?height=40&width=150" name="Wired" />
-                <LogoItem src="/placeholder.svg?height=40&width=150" name="VentureBeat" />
-                <LogoItem src="/placeholder.svg?height=40&width=150" name="The Verge" />
-              </div>
-            ))}
+          <div className="flex justify-center items-center border-2 border-white animate-scroll">
+            <div className="flex space-x-12">
+              <LogoItem
+                src="/placeholder.svg?height=40&width=150"
+                name="TechCrunch"
+              />
+              <LogoItem
+                src="/placeholder.svg?height=40&width=150"
+                name="Forbes"
+              />
+              <LogoItem
+                src="/placeholder.svg?height=40&width=150"
+                name="Wired"
+              />
+              <LogoItem
+                src="/placeholder.svg?height=40&width=150"
+                name="VentureBeat"
+              />
+              <LogoItem
+                src="/placeholder.svg?height=40&width=150"
+                name="The Verge"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -98,7 +136,9 @@ export default function LandingPage() {
       {/* Pricing */}
       <section className="py-16 bg-black/50">
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Unlock ChatPro's Full Potential</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Unlock ChatPro's Full Potential
+          </h2>
           <Tabs defaultValue="monthly" className="max-w-3xl mx-auto">
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="monthly">Monthly</TabsTrigger>
@@ -201,9 +241,12 @@ export default function LandingPage() {
       {/* CTA */}
       <section className="py-16 bg-[#0066FF]/10">
         <div className="container mx-auto max-w-6xl px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to elevate your writing?</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to elevate your writing?
+          </h2>
           <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-            Join thousands of satisfied users who have transformed their writing with ChatPro.
+            Join thousands of satisfied users who have transformed their writing
+            with ChatPro.
           </p>
           <Button size="lg" className="bg-[#0066FF] hover:bg-[#0066FF]/90">
             Get Started Now <ArrowRight className="ml-2" />
@@ -212,15 +255,20 @@ export default function LandingPage() {
       </section>
       <Footer />
     </div>
-  )
+  );
 }
 
 function LogoItem({ src, name }: { src: string; name: string }) {
   return (
     <div className="flex items-center justify-center w-[150px] opacity-50 hover:opacity-100 transition-opacity">
-      <Image src={src || "/placeholder.svg"} alt={name} width={150} height={40} />
+      <Image
+        src={src || "/placeholder.svg"}
+        alt={name}
+        width={150}
+        height={40}
+      />
     </div>
-  )
+  );
 }
 
 function StatCard({ number, label }: { number: string; label: string }) {
@@ -229,26 +277,31 @@ function StatCard({ number, label }: { number: string; label: string }) {
       <div className="text-3xl font-bold text-[#0066FF] mb-2">{number}</div>
       <div className="text-gray-400">{label}</div>
     </div>
-  )
+  );
 }
 
-function PricingCard({ 
-  title, 
-  price, 
-  description, 
-  features, 
-  highlighted = false 
-}: { 
-  title: string
-  price: string
-  description: string
-  features: string[]
-  highlighted?: boolean
+function PricingCard({
+  title,
+  price,
+  description,
+  features,
+  highlighted = false,
+}: {
+  title: string;
+  price: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
 }) {
   return (
-    <Card className={`p-6 ${highlighted ? 'border-[#0066FF]' : 'border-white/10'} bg-white/5`}>
+    <Card
+      className={`p-6 ${highlighted ? "border-[#0066FF]" : "border-white/10"} bg-white/5`}
+    >
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <div className="text-3xl font-bold mb-2">{price}<span className="text-sm text-gray-400">/mo</span></div>
+      <div className="text-3xl font-bold mb-2">
+        {price}
+        <span className="text-sm text-gray-400">/mo</span>
+      </div>
       <p className="text-gray-400 mb-4">{description}</p>
       <ul className="space-y-2">
         {features.map((feature, i) => (
@@ -258,18 +311,28 @@ function PricingCard({
           </li>
         ))}
       </ul>
-      <Button className={`w-full mt-6 ${highlighted ? 'bg-[#0066FF] hover:bg-[#0066FF]/90' : 'bg-white/10 hover:bg-white/20'}`}>
+      <Button
+        className={`w-full mt-6 ${highlighted ? "bg-[#0066FF] hover:bg-[#0066FF]/90" : "bg-white/10 hover:bg-white/20"}`}
+      >
         Get Started
       </Button>
     </Card>
-  )
+  );
 }
 
-function ReviewCard({ text, author, role }: { text: string; author: string; role: string }) {
+function ReviewCard({
+  text,
+  author,
+  role,
+}: {
+  text: string;
+  author: string;
+  role: string;
+}) {
   return (
     <Card className="p-6 bg-white/5 border-white/10">
       <div className="flex gap-1 mb-4">
-        {[1,2,3,4,5].map(i => (
+        {[1, 2, 3, 4, 5].map((i) => (
           <Star key={i} className="w-4 h-4 fill-[#0066FF] text-[#0066FF]" />
         ))}
       </div>
@@ -279,6 +342,5 @@ function ReviewCard({ text, author, role }: { text: string; author: string; role
         <div className="text-sm text-gray-400">{role}</div>
       </div>
     </Card>
-  )
+  );
 }
-
