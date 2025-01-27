@@ -36,7 +36,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center w-full -ml-24 justify-center space-x-8">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -84,9 +84,9 @@ export function Header() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/pricing" legacyBehavior passHref>
+                  <Link href="/contacts" legacyBehavior passHref>
                     <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50">
-                      Compare Plans
+                      Contact Us
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -94,8 +94,8 @@ export function Header() {
             </NavigationMenu>
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center">
+          {/* Desktop Actions Log In/Start for Free buttons */}
+          {/* <div className="hidden md:flex items-center">
             <Button
               className="pl-0 hover:bg-transparent"
               variant="ghost"
@@ -113,7 +113,7 @@ export function Header() {
                 </Button>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

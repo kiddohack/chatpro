@@ -117,6 +117,10 @@ const config: Config = {
           "45%": { transform: "translateY(-150%)", opacity: "0.1" },
           "100%": { transform: "translateY(-150%)", opacity: "0.1" },
         },
+        "infinite-scroll": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -125,6 +129,7 @@ const config: Config = {
         slide: "slide 6s linear infinite",
         "text-slide":
           "text-slide 12.5s cubic-bezier(0.83, 0, 0.17, 1) infinite",
+        "infinite-scroll": "infinite-scroll 20s linear infinite",
       },
     },
   },

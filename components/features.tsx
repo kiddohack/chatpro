@@ -4,9 +4,15 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 
+const images = [
+  { src: "/water-lily.webp", alt: "AI Generated Butterfly" },
+  { src: "/air-balloon.webp", alt: "AI Generated Scene" },
+  { src: "/butterfly.webp", alt: "AI Generated Art" },
+];
+
 export default function Features() {
   return (
-    <div className="rounded-3xl bg-[#1C1C1E] p-8 md:p-12">
+    <div className="rounded-3xl bg-[#1C1C1E] p-8 md:p-12 cursor-default">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white">
           Explore ChatPro's Features
@@ -27,28 +33,18 @@ export default function Features() {
                 that will leave everyone in awe.
               </p>
             </div>
+
             <div className="grid grid-cols-3 gap-2 p-2">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-15%20at%2010.38.38-h6EJBAMqiRRa3CrMscHZrRyDSKjYny.png"
-                alt="AI Generated Butterfly"
-                width={200}
-                height={200}
-                className="rounded-lg col-span-1 w-full h-auto"
-              />
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-15%20at%2010.38.38-h6EJBAMqiRRa3CrMscHZrRyDSKjYny.png"
-                alt="AI Generated Scene"
-                width={200}
-                height={200}
-                className="rounded-lg col-span-1 w-full h-auto"
-              />
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-15%20at%2010.38.38-h6EJBAMqiRRa3CrMscHZrRyDSKjYny.png"
-                alt="AI Generated Art"
-                width={200}
-                height={200}
-                className="rounded-lg col-span-1 w-full h-auto"
-              />
+              {images.map((images, index) => (
+                <Image
+                  key={index}
+                  src={images.src}
+                  width={200}
+                  height={200}
+                  alt={images.alt}
+                  className="rounded-lg col-span-1 w-full h-auto opacity-50 hover:opacity-100 transition-opacity duration-300"
+                />
+              ))}
             </div>
           </Card>
 
@@ -86,17 +82,27 @@ export default function Features() {
             <h3 className="text-2xl font-bold mb-2 text-white">
               Internet Search
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-8">
               Share any question you have and get the most up-to-date info right
               from the internet.
             </p>
-            <div className="bg-[#1C1C1E] rounded-lg p-4">
-              <div className="flex items-center gap-2 text-gray-400">
-                <span className="text-2xl">🔍</span>
-                <span className="text-sm">
-                  Searching for "The most anticipated 2024 TV shows."
-                </span>
+            <div className="flex items-center flex-col">
+              <div className="bg-[#1C1C1E] rounded-lg p-4 z-20 border border-neutral-600 hover:scale-110 transition-transform duration-700 cursor-default">
+                <div className="flex items-center gap-4 text-gray-400">
+                  <Image
+                    src={"/search-normal.svg"}
+                    width={0}
+                    height={0}
+                    alt="Search icon"
+                    className="h-6 w-auto"
+                  />
+                  <span className="text-sm">
+                    Searching for "The most anticipated 2025 TV shows."
+                  </span>
+                </div>
               </div>
+              {/* <div className="bg-[#2f2f32] rounded-lg p-4 w-[calc(100%-10px)] relative -top-5  z-10 border-b border-neutral-600"></div>
+              <div className="bg-[#38383c]/60 rounded-lg p-4 w-[calc(100%-20px)] relative -top-10  z-0 border-b border-neutral-600"></div> */}
             </div>
           </Card>
 
@@ -111,24 +117,19 @@ export default function Features() {
             </p>
             <div className="relative h-32">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-32 h-32">
-                  {["PDF", "DOC", "TXT", "EPUB"].map((format, i) => (
-                    <div
-                      key={format}
-                      className="absolute w-16 h-16 rounded-lg flex items-center justify-center text-sm font-bold text-white"
-                      style={{
-                        backgroundColor: [
-                          "#FF6B6B",
-                          "#4DABF7",
-                          "#82C91E",
-                          "#FCC419",
-                        ][i],
-                        transform: `rotate(${i * 90}deg) translateX(20px)`,
-                      }}
-                    >
-                      {format}
-                    </div>
-                  ))}
+                <div className="relative w-32 h-32 text-md font-bold text-white">
+                  <div className="absolute -left-20 w-16 h-16 rounded-lg flex items-center justify-center bg-[#FF6B6B] hover:scale-110 transition-transform duration-500">
+                    PDF
+                  </div>
+                  <div className="absolute top-10 -left-2 w-16 h-16 rounded-lg flex items-center justify-center bg-[#4DABF7] hover:scale-110 transition-transform duration-500">
+                    DOC
+                  </div>
+                  <div className="absolute -right-1 w-16 h-16 rounded-lg flex items-center justify-center bg-[#82C91E] hover:scale-110 transition-transform duration-500">
+                    TXT
+                  </div>
+                  <div className="absolute top-10 left-36 w-16 h-16 rounded-lg flex items-center justify-center bg-[#FCC419] hover:scale-110 transition-transform duration-500">
+                    EPUB
+                  </div>
                 </div>
               </div>
             </div>
@@ -141,7 +142,7 @@ export default function Features() {
               From friendly and empathetic to critical and assertive, choose the
               tone of the bot's responses.
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 text-md font-semibold">
               {[
                 { emoji: "🤖", text: "Default" },
                 { emoji: "👔", text: "Professional" },
