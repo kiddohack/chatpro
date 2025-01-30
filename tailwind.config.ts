@@ -135,7 +135,7 @@ const config: Config = {
         slide: "slide 6s linear infinite",
         "text-slide":
           "text-slide 12.5s cubic-bezier(0.83, 0, 0.17, 1) infinite",
-        "infinite-scroll": "infinite-scroll 20s linear infinite",
+        "infinite-scroll": "infinite-scroll 40s linear infinite",
         "infinite-scroll-image": "infinite-scroll-image 20s linear infinite",
       },
     },
