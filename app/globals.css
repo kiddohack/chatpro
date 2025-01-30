@@ -7,6 +7,24 @@ body {
 }
 
 @layer utilities {
+  /* Custom scrollbar styles */
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px; /* Custom width */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Custom track color */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: #4a90e2; /* Custom thumb color */
+    border-radius: 10px; /* Optional: Rounded corners */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background-color: #357abd; /* Optional: Hover effect */
+  }
+
   .text-balance {
     text-wrap: balance;
   }

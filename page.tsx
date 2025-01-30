@@ -13,7 +13,7 @@ import {
   // MessageSquare,
   // Search,
   // Smartphone,
-  Star,
+  //Star,
   // Zap,
 } from "lucide-react";
 import Image from "next/image";
@@ -22,12 +22,13 @@ import Features from "./components/features";
 import { FAQ } from "./components/faq";
 import { Newsletter } from "./components/newsletter";
 import { Footer } from "./components/footer";
+import ReviewsSection from "./components/ui/reviews";
 
 export default function LandingPage() {
   // const [activeCategory, setActiveCategory] = useState("social");
 
   return (
-    <div className="max-h-full h-[100dvh]  text-white">
+    <div className="max-h-full h-[100dvh] text-white scrollbar-hide scrollbar-custom">
       <div className="bg-neutral-950">
         {/* Hero Section */}
         <section className="relative px-4 pt-24 pb-16 overflow-hidden bg-[#0066FF]/10">
@@ -141,6 +142,7 @@ export default function LandingPage() {
                       "5 images per month",
                       "Standard support",
                     ]}
+                    period="month"
                   />
                   <PricingCard
                     title="Premium"
@@ -153,6 +155,7 @@ export default function LandingPage() {
                       "API access",
                     ]}
                     highlighted
+                    period="month"
                   />
                 </div>
               </TabsContent>
@@ -167,6 +170,7 @@ export default function LandingPage() {
                       "5 images per month",
                       "Standard support",
                     ]}
+                    period="year"
                   />
                   <PricingCard
                     title="Premium"
@@ -179,6 +183,7 @@ export default function LandingPage() {
                       "API access",
                     ]}
                     highlighted
+                    period="year"
                   />
                 </div>
               </TabsContent>
@@ -187,28 +192,7 @@ export default function LandingPage() {
         </section>
 
         {/* Reviews */}
-        <section className="py-16 border-t border-white/10">
-          <div className="container mx-auto max-w-6xl px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Reviews</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <ReviewCard
-                text="ChatOn has completely transformed how I write content. It's an indispensable tool for any writer."
-                author="Sarah J."
-                role="Content Creator"
-              />
-              <ReviewCard
-                text="The image generation feature is incredible. It's saved me countless hours searching for the right visuals."
-                author="Michael R."
-                role="Designer"
-              />
-              <ReviewCard
-                text="As a non-native English speaker, ChatOn helps me write with confidence. The suggestions are always spot-on."
-                author="Elena M."
-                role="Marketing Manager"
-              />
-            </div>
-          </div>
-        </section>
+        <ReviewsSection />
 
         {/* FAQ Section */}
         <section className="py-16 border-t border-white/10">
@@ -260,8 +244,10 @@ function LogoItem({ src, name }: { src: string; name: string }) {
 
 function StatCard({ number, label }: { number: string; label: string }) {
   return (
-    <div className="text-center">
-      <div className="text-3xl font-bold text-[#0066FF] mb-2">{number}</div>
+    <div className="text-center bg-slate-800 py-10 rounded-3xl">
+      <div className="text-4xl md:text-6xl font-bold text-[#0066FF] mb-2 ">
+        {number}
+      </div>
       <div className="text-gray-400">{label}</div>
     </div>
   );
@@ -273,12 +259,14 @@ function PricingCard({
   description,
   features,
   highlighted = false,
+  period,
 }: {
   title: string;
   price: string;
   description: string;
   features: string[];
   highlighted?: boolean;
+  period: string;
 }) {
   return (
     <Card
@@ -287,7 +275,9 @@ function PricingCard({
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <div className="text-3xl font-bold mb-2">
         {price}
-        <span className="text-sm text-gray-400">/mo</span>
+        <span className="text-sm text-gray-400">
+          {period === "year" ? "/year" : "/mo"}
+        </span>
       </div>
       <p className="text-gray-400 mb-4">{description}</p>
       <ul className="space-y-2">
@@ -303,31 +293,6 @@ function PricingCard({
       >
         Get Started
       </Button>
-    </Card>
-  );
-}
-
-function ReviewCard({
-  text,
-  author,
-  role,
-}: {
-  text: string;
-  author: string;
-  role: string;
-}) {
-  return (
-    <Card className="p-6 bg-white/5 border-white/10">
-      <div className="flex gap-1 mb-4">
-        {[1, 2, 3, 4, 5].map((i) => (
-          <Star key={i} className="w-4 h-4 fill-[#0066FF] text-[#0066FF]" />
-        ))}
-      </div>
-      <p className="mb-4 text-gray-300">{text}</p>
-      <div>
-        <div className="font-semibold">{author}</div>
-        <div className="text-sm text-gray-400">{role}</div>
-      </div>
     </Card>
   );
 }

@@ -5,9 +5,10 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 
 const images = [
-  { src: "/water-lily.webp", alt: "AI Generated Butterfly" },
-  { src: "/air-balloon.webp", alt: "AI Generated Scene" },
-  { src: "/butterfly.webp", alt: "AI Generated Art" },
+  { src: "/water-lily.webp", alt: "AI Generated Water Lily" },
+  { src: "/air-balloon.webp", alt: "AI Generated Air Baloon" },
+  { src: "/butterfly.webp", alt: "AI Generated Butterfly" },
+  { src: "/pink-flower.webp", alt: "AI Generated Flower" },
 ];
 
 export default function Features() {
@@ -23,7 +24,7 @@ export default function Features() {
       <div className="grid gap-6">
         <div className="grid md:grid-cols-2 gap-6">
           {/* Image Generation */}
-          <Card className="bg-[#2C2C2E] border-none rounded-xl overflow-hidden">
+          <Card className="bg-[#2C2C2E] border-none rounded-xl overflow-hidden flex h-96">
             <div className="p-6">
               <h3 className="text-2xl font-bold mb-2 text-white">
                 Image Generation
@@ -34,17 +35,29 @@ export default function Features() {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 p-2">
-              {images.map((images, index) => (
-                <Image
-                  key={index}
-                  src={images.src}
-                  width={200}
-                  height={200}
-                  alt={images.alt}
-                  className="rounded-lg col-span-1 w-full h-auto opacity-50 hover:opacity-100 transition-opacity duration-300"
-                />
-              ))}
+            <div className="h-96 overflow-hidden relative mr-2">
+              <div className="animate-infinite-scroll-image flex flex-col space-y-4">
+                {images.map((image, index) => (
+                  <Image
+                    key={`image-${index}`}
+                    src={image.src}
+                    width={350}
+                    height={350}
+                    alt={image.alt}
+                    className="rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  />
+                ))}
+                {images.map((image, index) => (
+                  <Image
+                    key={`image-duplicate-${index}`}
+                    src={image.src}
+                    width={450}
+                    height={450}
+                    alt={image.alt}
+                    className="rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  />
+                ))}
+              </div>
             </div>
           </Card>
 

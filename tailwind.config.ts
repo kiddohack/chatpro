@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
+import scrollBar from "tailwind-scrollbar";
+import scrollbarHide from "tailwind-scrollbar-hide";
 
 const config: Config = {
   darkMode: ["class"],
@@ -121,6 +123,10 @@ const config: Config = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "infinite-scroll-image": {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -130,10 +136,11 @@ const config: Config = {
         "text-slide":
           "text-slide 12.5s cubic-bezier(0.83, 0, 0.17, 1) infinite",
         "infinite-scroll": "infinite-scroll 20s linear infinite",
+        "infinite-scroll-image": "infinite-scroll-image 20s linear infinite",
       },
     },
   },
-  plugins: [animate],
+  plugins: [animate, scrollBar, scrollbarHide],
 };
 
 export default config;

@@ -20,9 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={cn(inter.className, "min-h-screen bg-black antialiased text-white")}
-      >
+      <body className={cn(inter.className, "bg-black antialiased text-white")}>
         <Header />
         <main className="pt-16">{children}</main>
       </body>

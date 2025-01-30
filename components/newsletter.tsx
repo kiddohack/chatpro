@@ -8,8 +8,8 @@ import Link from "next/link";
 
 export function Newsletter() {
   return (
-    <div className="w-full max-w-6xl mx-auto bg-[#1C1C1E] rounded-3xl overflow-hidden">
-      <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12 items-center">
+    <div className="w-full max-w-5xl mx-auto bg-[#1C1C1E]/50 rounded-3xl overflow-hidden">
+      <div className="grid md:grid-cols-2 gap-8 px-8 items-center">
         <div>
           <h2 className="text-3xl font-bold mb-4">Hack your productivity</h2>
           <p className="text-gray-400 mb-8">
@@ -40,13 +40,16 @@ export function Newsletter() {
           </div>
         </div>
 
-        <div className="relative h-[300px]">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-15%20at%2010.45.29-0VbgbpYXB5d5YtQEwLQbxGGxQPFpVj.png"
-            alt="Free Guide Preview"
-            fill
-            className="object-contain"
-          />
+        <div className="flex justify-center">
+          <div className="relative h-[300px] top-16">
+            <Image
+              src="/ChatPro.webp"
+              alt="Free Guide Preview"
+              width={0}
+              height={0}
+              className="h-full w-auto object-contain rounded-xl"
+            />
+          </div>
         </div>
       </div>
     </div>

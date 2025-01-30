@@ -20,7 +20,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#1C1C1E]/95 backdrop-blur-md text-white">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1C1C1E]/95 backdrop-blur-md text-white">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}

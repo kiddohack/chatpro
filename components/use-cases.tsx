@@ -24,17 +24,17 @@ const categories = [
       "No more racking your brain for catchy content—just chat it out! With ChatPro, you can create engaging posts in seconds, complete with cool images, memes, or whatever grabs attention. Plus, stay in the loop with trends, all without leaving the chat. It's time to forget about the grind and welcome the effortless awesomeness with ChatPro.",
     useCases: [
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/instagram.svg",
         title: "Content",
         description: "Create Instagram posts on any topic",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/instagram.svg",
         title: "Captions",
         description: "Come up with engaging captions for your Instagram posts",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/facebook.svg",
         title: "Facebook",
         description: "Stand out on Facebook with unique posts",
       },
@@ -48,17 +48,17 @@ const categories = [
       "Plan your perfect trip with AI assistance. Get personalized itineraries, local recommendations, and travel tips tailored to your preferences.",
     useCases: [
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/itinerary.svg",
         title: "Itineraries",
         description: "Create detailed travel plans",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/local-tips.svg",
         title: "Local Tips",
         description: "Discover hidden gems and local favorites",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/task.svg",
         title: "Packing",
         description: "Get customized packing lists",
       },
@@ -72,17 +72,17 @@ const categories = [
       "Boost your productivity with AI-powered work assistance. From email drafting to presentation creation, we've got you covered.",
     useCases: [
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/email.svg",
         title: "Emails",
         description: "Draft professional emails quickly",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/documents.svg",
         title: "Documents",
         description: "Create and edit business documents",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/presentation.svg",
         title: "Presentations",
         description: "Design engaging presentations",
       },
@@ -96,17 +96,17 @@ const categories = [
       "Transform your marketing efforts with AI-generated content and strategies that convert.",
     useCases: [
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/keyboard.svg",
         title: "Ad Copy",
         description: "Write compelling ad copy",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/campaign.svg",
         title: "Campaigns",
         description: "Plan marketing campaigns",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/diagram.svg",
         title: "Analytics",
         description: "Analyze marketing performance",
       },
@@ -120,17 +120,17 @@ const categories = [
       "Get help with coding challenges, debug issues, and learn programming concepts with AI assistance.",
     useCases: [
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/debug.svg",
         title: "Debug",
         description: "Find and fix code issues",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/learn.svg",
         title: "Learn",
         description: "Understanding coding concepts",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/optimise.svg",
         title: "Optimize",
         description: "Improve code performance",
       },
@@ -144,17 +144,17 @@ const categories = [
       "Achieve your health and fitness goals with personalized workout plans and nutrition advice.",
     useCases: [
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/workout.svg",
         title: "Workouts",
         description: "Get personalized exercise plans",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/nutrition.svg",
         title: "Nutrition",
         description: "Plan healthy meals and track diet",
       },
       {
-        icon: "/placeholder.svg?height=48&width=48",
+        icon: "/progress.svg",
         title: "Progress",
         description: "Track your fitness journey",
       },
@@ -200,7 +200,7 @@ export function UseCases() {
       {selectedCategory && (
         <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Left Column - Description */}
-          <div>
+          <div className="">
             <h3 className="text-2xl font-bold mb-4">
               {selectedCategory.label}
             </h3>
@@ -222,8 +222,8 @@ export function UseCases() {
                 <Image
                   src={useCase.icon || "/placeholder.svg"}
                   alt={useCase.title}
-                  width={48}
-                  height={48}
+                  width={30}
+                  height={30}
                   className="rounded-xl mb-3"
                 />
                 <h4 className="font-semibold mb-2">{useCase.title}</h4>
