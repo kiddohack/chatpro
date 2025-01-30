@@ -95,14 +95,14 @@ export default function LandingPage() {
         </section>
 
         {/* Features Section */}
-        <section className="py-16" id="features">
+        <section id="features" className="py-16">
           <div className="container mx-auto max-w-6xl px-4">
             <Features />
           </div>
         </section>
 
         {/* Use Cases */}
-        <section className="py-16 border-t border-white/10">
+        <section id="use-cases" className="py-16 border-t border-white/10">
           <div className="container mx-auto max-w-6xl px-4">
             <UseCases />
           </div>

@@ -41,7 +41,7 @@ export function Header() {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent hover:bg-[#2C2C2E]">
-                    Features
+                    <Link href="#features">Features</Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 w-[500px] grid-cols-2">
@@ -77,7 +77,7 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href="/use-cases" legacyBehavior passHref>
+                  <Link href="#use-cases" legacyBehavior passHref>
                     <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50">
                       Use Cases
                     </NavigationMenuLink>
@@ -150,7 +150,7 @@ export function Header() {
                   Features
                 </Link>
                 <Link
-                  href="/use-cases"
+                  href="#use-cases"
                   className="text-lg font-medium hover:text-[#0066FF]"
                   onClick={() => setIsOpen(false)}
                 >
