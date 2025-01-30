@@ -31,7 +31,7 @@ export default function LandingPage() {
     <div className="max-h-full h-[100dvh] text-white scrollbar-hide scrollbar-custom">
       <div className="bg-neutral-950">
         {/* Hero Section */}
-        <section className="relative px-4 pt-24 pb-16 overflow-hidden bg-[#0066FF]/10">
+        <section className="relative px-4 pt-24 pb-16 overflow-hidden">
           <div className="absolute inset-0 " />
           <div className="container relative mx-auto max-w-6xl">
             <div className="text-center mb-8">
@@ -66,7 +66,7 @@ export default function LandingPage() {
         </section>
 
         {/* Infinite Logo Scroll */}
-        <section className="py-16 border-t overflow-hidden flex flex-col items-center bg-[#0066FF]/10">
+        <section className="py-16 border-t overflow-hidden flex flex-col items-center">
           <h3 className="text-center text-2xl md:text-4xl font-semibold text-white mb-8">
             See Who's Talking About Us
           </h3>
@@ -95,7 +95,7 @@ export default function LandingPage() {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 bg-gradient-to-b from-[#0066FF]/10 to-transparent">
+        <section className="py-16" id="features">
           <div className="container mx-auto max-w-6xl px-4">
             <Features />
           </div>

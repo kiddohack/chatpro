@@ -44,10 +44,10 @@ export function Header() {
                     Features
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    <ul className="grid gap-3 p-4 w-[500px] grid-cols-2">
                       <li className="row-span-3">
                         <Link
-                          href="/features"
+                          href="#features"
                           className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#0066FF]/20 to-[#0066FF]/10 p-6 no-underline outline-none focus:shadow-md"
                         >
                           <div className="mb-2 mt-4 text-lg font-medium">
@@ -58,20 +58,20 @@ export function Header() {
                           </p>
                         </Link>
                       </li>
-                      <ListItem href="/features/chat" title="AI Chat">
-                        Advanced conversation capabilities
+                      <ListItem href="#" title="Internet Search">
+                        Get instant response of your question
                       </ListItem>
-                      <ListItem
-                        href="/features/images"
-                        title="Image Generation"
-                      >
+                      <ListItem href="#" title="Image Generation">
                         Create stunning visuals instantly
                       </ListItem>
-                      <ListItem
-                        href="/features/documents"
-                        title="Document Analysis"
-                      >
+                      <ListItem href="#" title="Document Analysis">
                         Process and analyze any document
+                      </ListItem>
+                      <ListItem href="#" title="Writing Tone">
+                        You can choose the tone of your text
+                      </ListItem>
+                      <ListItem href="#" title="Web-Mobile Sync">
+                        Buy once and use everywhere
                       </ListItem>
                     </ul>
                   </NavigationMenuContent>
@@ -87,6 +87,20 @@ export function Header() {
                   <Link href="/contacts" legacyBehavior passHref>
                     <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50">
                       Contact Us
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/contacts" legacyBehavior passHref>
+                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50">
+                      Privacy Policy
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/contacts" legacyBehavior passHref>
+                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50">
+                      Terms of Use
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
@@ -129,7 +143,7 @@ export function Header() {
             >
               <nav className="flex flex-col space-y-4">
                 <Link
-                  href="/features"
+                  href="#features"
                   className="text-lg font-medium hover:text-[#0066FF]"
                   onClick={() => setIsOpen(false)}
                 >
@@ -147,7 +161,21 @@ export function Header() {
                   className="text-lg font-medium hover:text-[#0066FF]"
                   onClick={() => setIsOpen(false)}
                 >
-                  Compare Plans
+                  Contact Us
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="text-lg font-medium hover:text-[#0066FF]"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="text-lg font-medium hover:text-[#0066FF]"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Terms of Use
                 </Link>
                 <div className="pt-4 flex flex-col space-y-4">
                   <Button
