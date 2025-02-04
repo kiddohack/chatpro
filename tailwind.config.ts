@@ -127,6 +127,10 @@ const config: Config = {
           "0%": { transform: "translateY(0%)" },
           "100%": { transform: "translateY(-50%)" },
         },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -137,6 +141,7 @@ const config: Config = {
           "text-slide 12.5s cubic-bezier(0.83, 0, 0.17, 1) infinite",
         "infinite-scroll": "infinite-scroll 40s linear infinite",
         "infinite-scroll-image": "infinite-scroll-image 20s linear infinite",
+        "fade-in": "fade-in 0.5s ease-out",
       },
     },
   },

@@ -31,15 +31,17 @@ export function Header() {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold flex items-center">
-            <Image
-              src={"/AppIcon.svg"}
-              width={0}
-              height={0}
-              alt="App Logo"
-              className="w-auto h-10 mr-2"
-            />
-            ChatPro
+          <Link href="/" legacyBehavior passHref>
+            <a className="text-2xl font-bold flex items-center space-x-2">
+              <Image
+                src="/AppIcon.svg"
+                width={40} // Explicit width
+                height={40} // Explicit height
+                alt="App Logo"
+                className=""
+              />
+              <div>ChatPro</div>
+            </a>
           </Link>
 
           {/* Desktop Navigation */}
@@ -205,7 +207,7 @@ export function Header() {
                   Use Cases
                 </Link>
                 <Link
-                  href="/pricing"
+                  href="/contacts"
                   className="text-lg font-medium hover:text-[#0066FF]"
                   onClick={() => setIsOpen(false)}
                 >
