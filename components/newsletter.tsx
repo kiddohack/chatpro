@@ -29,11 +29,11 @@ export function Newsletter() {
             </div>
             <p className="text-xs text-gray-400">
               By tapping Get Guide, you accept our{" "}
-              <Link href="#" className="underline hover:text-[#0066FF]">
+              <Link href="/terms" className="underline hover:text-[#0066FF]">
                 Terms of Use
               </Link>{" "}
               and{" "}
-              <Link href="#" className="underline hover:text-[#0066FF]">
+              <Link href="/privacy" className="underline hover:text-[#0066FF]">
                 Privacy Policy
               </Link>
             </p>

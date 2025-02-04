@@ -4,11 +4,9 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -19,10 +17,17 @@ import Image from "next/image";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string, offset: number = 30) => {
     const element = document.querySelector(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -49,74 +54,14 @@ export function Header() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-[#2C2C2E]">
-                    <Link
-                      href="#features"
-                      scroll={false}
+                  <Link href="#features" scroll={false} legacyBehavior passHref>
+                    <NavigationMenuLink
+                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50"
                       onClick={() => scrollToSection("#features")}
                     >
                       Features
-                    </Link>
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 w-[500px] grid-cols-2">
-                      <li className="row-span-3">
-                        <Link
-                          href="#features"
-                          scroll={false}
-                          onClick={() => scrollToSection("#features")}
-                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#0066FF]/20 to-[#0066FF]/10 p-6 no-underline outline-none focus:shadow-md"
-                        >
-                          <div className="mb-2 mt-4 text-lg font-medium">
-                            Explore All Features
-                          </div>
-                          <p className="text-sm leading-tight text-muted-foreground">
-                            Discover everything ChatPro has to offer
-                          </p>
-                        </Link>
-                      </li>
-                      <ListItem
-                        href="#features"
-                        title="Internet Search"
-                        scroll={false}
-                        onClick={() => scrollToSection("#features")}
-                      >
-                        Get instant response of your question
-                      </ListItem>
-                      <ListItem
-                        href="#features"
-                        title="Image Generation"
-                        scroll={false}
-                        onClick={() => scrollToSection("#features")}
-                      >
-                        Create stunning visuals instantly
-                      </ListItem>
-                      <ListItem
-                        href="#features"
-                        title="Document Analysis"
-                        scroll={false}
-                        onClick={() => scrollToSection("#features")}
-                      >
-                        Process and analyze any document
-                      </ListItem>
-                      <ListItem
-                        href="#features"
-                        title="Writing Tone"
-                        scroll={false}
-                        onClick={() => scrollToSection("#features")}
-                      >
-                        You can choose the tone of your text
-                      </ListItem>
-                      <ListItem
-                        href="#features"
-                        title="Web-Mobile Sync"
-                        scroll={false}
-                        onClick={() => scrollToSection("#features")}
-                      >
-                        Buy once and use everywhere
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
+                    </NavigationMenuLink>
+                  </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link
@@ -253,20 +198,93 @@ export function Header() {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ListItem = ({ className, title, children, ...props }: any) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
+// const ListItem = ({ className, title, children, ...props }: any) => {
+//   return (
+//     <li>
+//       <NavigationMenuLink asChild>
+//         <Link
+//           className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white ${className}`}
+//           {...props}
+//         >
+//           <div className="text-sm font-medium leading-none">{title}</div>
+//           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+//             {children}
+//           </p>
+//         </Link>
+//       </NavigationMenuLink>
+//     </li>
+//   );
+// };
+
+{
+  /* <NavigationMenuItem>
+  <NavigationMenuTrigger className="bg-transparent hover:bg-[#2C2C2E]">
+    <Link
+      href="#features"
+      scroll={false}
+      onClick={() => scrollToSection("#features")}
+    >
+      Features
+    </Link>
+  </NavigationMenuTrigger>
+  <NavigationMenuContent>
+    <ul className="grid gap-3 p-4 w-[500px] grid-cols-2">
+      <li className="row-span-3">
         <Link
-          className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white ${className}`}
-          {...props}
+          href="#features"
+          scroll={false}
+          onClick={() => scrollToSection("#features")}
+          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#0066FF]/20 to-[#0066FF]/10 p-6 no-underline outline-none focus:shadow-md"
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
+          <div className="mb-2 mt-4 text-lg font-medium">
+            Explore All Features
+          </div>
+          <p className="text-sm leading-tight text-muted-foreground">
+            Discover everything ChatPro has to offer
           </p>
         </Link>
-      </NavigationMenuLink>
-    </li>
-  );
-};
+      </li>
+      <ListItem
+        href="#features"
+        title="Internet Search"
+        scroll={false}
+        onClick={() => scrollToSection("#features")}
+      >
+        Get instant response of your question
+      </ListItem>
+      <ListItem
+        href="#features"
+        title="Image Generation"
+        scroll={false}
+        onClick={() => scrollToSection("#features")}
+      >
+        Create stunning visuals instantly
+      </ListItem>
+      <ListItem
+        href="#features"
+        title="Document Analysis"
+        scroll={false}
+        onClick={() => scrollToSection("#features")}
+      >
+        Process and analyze any document
+      </ListItem>
+      <ListItem
+        href="#features"
+        title="Writing Tone"
+        scroll={false}
+        onClick={() => scrollToSection("#features")}
+      >
+        You can choose the tone of your text
+      </ListItem>
+      <ListItem
+        href="#features"
+        title="Web-Mobile Sync"
+        scroll={false}
+        onClick={() => scrollToSection("#features")}
+      >
+        Buy once and use everywhere
+      </ListItem>
+    </ul>
+  </NavigationMenuContent>
+</NavigationMenuItem>; */
+}
