@@ -39,9 +39,9 @@ export default function ContactsPage() {
   };
 
   return (
-    <div className="flex justify-center mt-20 min-h-[100dvh]">
+    <div className="flex justify-center mt-20 max-h-[100svh]">
       <form
-        className="bg-[#1C1C1E] p-20 rounded-3xl shadow-md w-full max-w-3xl h-fit animate-fade-in"
+        className="bg-[#1C1C1E] mx-4 p-6 md:p-20 rounded-3xl shadow-md w-full max-w-3xl h-fit animate-fade-in"
         onSubmit={handleSubmit}
       >
         <h2 className="text-3xl font-bold mb-6">Contact Us</h2>

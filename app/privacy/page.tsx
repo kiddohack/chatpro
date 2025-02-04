@@ -7,7 +7,7 @@ import { MDXProvider } from "@mdx-js/react";
 
 export default function PrivacyPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
+    <main className="max-w-4xl mx-auto px-6 py-12 animate-fade-in">
       <MDXProvider components={MDXComponents}>
         <article className="prose lg:prose-lg prose-gray">
           <PrivacyPolicy />

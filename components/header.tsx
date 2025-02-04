@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 
+import SmoothNavigation from "./smoothScroll";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -17,27 +18,13 @@ import Image from "next/image";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (id: string, offset: number = 30) => {
-    const element = document.querySelector(id);
-    if (element) {
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#1C1C1E]/95 backdrop-blur-md text-white">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" legacyBehavior passHref>
-            <a className="text-2xl font-bold flex items-center space-x-2">
+          <SmoothNavigation path="/" sectionId="main">
+            <div className="text-2xl font-bold flex items-center space-x-2 w-max">
               <Image
                 src="/AppIcon.svg"
                 width={40} // Explicit width
@@ -46,37 +33,26 @@ export function Header() {
                 className=""
               />
               <div>ChatPro</div>
-            </a>
-          </Link>
+            </div>
+          </SmoothNavigation>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center w-full -ml-24 justify-center space-x-8">
+          <nav className="hidden lg:flex items-center pl-24 w-5/6 space-x-8">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link href="#features" scroll={false} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50"
-                      onClick={() => scrollToSection("#features")}
-                    >
+                  <SmoothNavigation path="/" sectionId="features">
+                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50">
                       Features
                     </NavigationMenuLink>
-                  </Link>
+                  </SmoothNavigation>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link
-                    href="#use-cases"
-                    scroll={false}
-                    legacyBehavior
-                    passHref
-                  >
-                    <NavigationMenuLink
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50"
-                      onClick={() => scrollToSection("#use-cases")}
-                    >
+                  <SmoothNavigation path="/" sectionId="use-cases">
+                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-[#2C2C2E] hover:text-white focus:bg-[#2C2C2E] focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-[#2C2C2E]/50 data-[state=open]:bg-[#2C2C2E]/50">
                       Use Cases
                     </NavigationMenuLink>
-                  </Link>
+                  </SmoothNavigation>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link href="/contacts" legacyBehavior passHref>
@@ -126,7 +102,7 @@ export function Header() {
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
+            <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
@@ -137,20 +113,22 @@ export function Header() {
               className="w-[300px] bg-[#1C1C1E]/95 backdrop-blur-md border-l border-white/10"
             >
               <nav className="flex flex-col space-y-4">
-                <Link
-                  href="#features"
-                  className="text-lg font-medium hover:text-[#0066FF]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Features
-                </Link>
-                <Link
-                  href="#use-cases"
-                  className="text-lg font-medium hover:text-[#0066FF]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Use Cases
-                </Link>
+                <SmoothNavigation path="/" sectionId="features">
+                  <div
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium hover:text-[#0066FF]"
+                  >
+                    Features
+                  </div>
+                </SmoothNavigation>
+                <SmoothNavigation path="/" sectionId="use-cases">
+                  <div
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium hover:text-[#0066FF]"
+                  >
+                    Use Cases
+                  </div>
+                </SmoothNavigation>
                 <Link
                   href="/contacts"
                   className="text-lg font-medium hover:text-[#0066FF]"
@@ -173,13 +151,13 @@ export function Header() {
                   Terms of Use
                 </Link>
                 <div className="pt-4 flex flex-col space-y-4">
-                  <Button
+                  {/* <Button
                     variant="ghost"
                     asChild
                     onClick={() => setIsOpen(false)}
                   >
                     <Link href="/login">Log In</Link>
-                  </Button>
+                  </Button> */}
                   <Button
                     className="bg-[#0066FF] hover:bg-[#0066FF]/90 text-white"
                     asChild
@@ -197,7 +175,7 @@ export function Header() {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+//// eslint-disable-next-line @typescript-eslint/no-explicit-any
 // const ListItem = ({ className, title, children, ...props }: any) => {
 //   return (
 //     <li>
@@ -216,8 +194,7 @@ export function Header() {
 //   );
 // };
 
-{
-  /* <NavigationMenuItem>
+/* <NavigationMenuItem>
   <NavigationMenuTrigger className="bg-transparent hover:bg-[#2C2C2E]">
     <Link
       href="#features"
@@ -286,5 +263,4 @@ export function Header() {
       </ListItem>
     </ul>
   </NavigationMenuContent>
-</NavigationMenuItem>; */
-}
+</NavigationMenuItem>;  */

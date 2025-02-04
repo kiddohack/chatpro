@@ -1,12 +1,12 @@
 import mdx from "@next/mdx";
 
 let userConfig = undefined;
-try {
-  userConfig = await import("./v0-user-next.config");
-} catch (e) {
-  // ignore error
-  console.error(e);
-}
+// try {
+//   userConfig = await import("./v0-user-next.config");
+// } catch (e) {
+//   // ignore error
+//   console.error("Optional config file not found:", e);
+// }
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

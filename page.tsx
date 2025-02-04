@@ -28,7 +28,10 @@ export default function LandingPage() {
   // const [activeCategory, setActiveCategory] = useState("social");
 
   return (
-    <div className="max-h-full h-[100dvh] text-white scrollbar-hide scrollbar-custom">
+    <div
+      id="main"
+      className="max-h-full h-[100dvh] text-white scrollbar-hide scrollbar-custom animate-fade-in"
+    >
       <div className="bg-neutral-950">
         {/* Hero Section */}
         <section className="relative px-4 pt-24 pb-16 overflow-hidden">
