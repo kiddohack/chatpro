@@ -76,7 +76,7 @@ export default function LandingPage() {
 
           <div className="flex overflow-hidden w-full md:w-1/3">
             {/* Scrolling container */}
-            <div className="flex animate-infinite-scroll">
+            <div className="flex animate-infinite-scroll-mobile md:animate-infinite-scroll">
               {/* Original content */}
               <div className="flex space-x-8">
                 <LogoItem src="/TechCrunch.svg" name="TechCrunch" />

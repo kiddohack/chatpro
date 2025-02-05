@@ -131,16 +131,23 @@ export default function Features() {
             <div className="relative h-32">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-32 h-32 text-md font-bold text-white">
-                  <div className="absolute -left-20 w-16 h-16 rounded-lg flex items-center justify-center bg-[#FF6B6B] hover:scale-110 transition-transform duration-500">
+                  <Image
+                    src={"/files.png"}
+                    width={0}
+                    height={0}
+                    alt="Files Image"
+                    className="h-6 w-auto"
+                  />
+                  <div className="absolute -left-6  w-16 h-16 rounded-lg flex items-center justify-center bg-[#FF6B6B] hover:scale-110 transition-transform duration-500">
                     PDF
                   </div>
-                  <div className="absolute top-10 -left-2 w-16 h-16 rounded-lg flex items-center justify-center bg-[#4DABF7] hover:scale-110 transition-transform duration-500">
+                  <div className="absolute top-20 -left-6 w-16 h-16 rounded-lg flex items-center justify-center bg-[#4DABF7] hover:scale-110 transition-transform duration-500">
                     DOC
                   </div>
-                  <div className="absolute -right-1 w-16 h-16 rounded-lg flex items-center justify-center bg-[#82C91E] hover:scale-110 transition-transform duration-500">
+                  <div className="absolute -right-6 w-16 h-16 rounded-lg flex items-center justify-center bg-[#82C91E] hover:scale-110 transition-transform duration-500">
                     TXT
                   </div>
-                  <div className="absolute top-10 left-36 w-16 h-16 rounded-lg flex items-center justify-center bg-[#FCC419] hover:scale-110 transition-transform duration-500">
+                  <div className="absolute -right-6 top-20 w-16 h-16 rounded-lg flex items-center justify-center bg-[#FCC419] hover:scale-110 transition-transform duration-500">
                     EPUB
                   </div>
                 </div>

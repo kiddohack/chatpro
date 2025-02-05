@@ -48,10 +48,10 @@ const reviews: Review[] = [
 
 const ReviewsSection = () => {
   return (
-    <section className="py-16 border-t border-white/10 overflow-hidden">
-      <div className="flex flex-col w-screen px-4">
+    <section className="py-16 border-t w-full border-white/10 overflow-hidden">
+      <div className="flex flex-col overflow-hidden px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Reviews</h2>
-        <div className="flex w-full gap-8  animate-infinite-scroll">
+        <div className="flex gap-8 animate-infinite-scroll w-[4650px] ">
           {reviews.concat(reviews).map((review, index) => (
             <ReviewCard
               key={index}

@@ -58,7 +58,7 @@ export default function ContactsPage() {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className={`shadow bg-neutral-700  appearance-none border rounded-xl w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline focus:border-4 focus:border-sky-600 transition-all duration-100 ${errors.name ? "border-red-500" : ""}`}
+            className={`shadow bg-neutral-700  appearance-none border rounded-xl w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-4 focus:border-sky-600 transition-all duration-100 ${errors.name ? "border-red-500" : ""}`}
             placeholder="e.g. John Doe"
           />
           {errors.name && (
@@ -78,7 +78,7 @@ export default function ContactsPage() {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={`shadow bg-neutral-700  appearance-none border rounded-xl w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline focus:border-4 focus:border-sky-600 transition-all duration-100 ${errors.email ? "border-red-500" : ""}`}
+            className={`shadow bg-neutral-700  appearance-none border rounded-xl w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-4 focus:border-sky-600 transition-all duration-100 ${errors.email ? "border-red-500" : ""}`}
             placeholder="example@gmail.com"
           />
           {errors.email && (
@@ -97,7 +97,7 @@ export default function ContactsPage() {
             name="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className={`shadow bg-neutral-700 appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-4 focus:border-sky-600 transition-all duration-100 ${errors.message ? "border-red-500" : ""}`}
+            className={`shadow bg-neutral-700 appearance-none border rounded-xl w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline focus:border-4 focus:border-sky-600 transition-all duration-100 ${errors.message ? "border-red-500" : ""}`}
             placeholder="Your message to our team"
             rows={5}
           ></textarea>
