@@ -120,25 +120,23 @@ export default function Features() {
           </Card>
 
           {/* Document Master */}
-          <Card className="bg-[#2C2C2E] border-none rounded-xl p-6">
+          <Card className="bg-[#2C2C2E] border-none rounded-xl p-6 relative overflow-hidden">
+            {/* Header & Description */}
             <h3 className="text-2xl font-bold mb-2 text-white">
               Document Master
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-6">
               Summarize, rewrite, and translate PDF, DOC, TXT, and EPUB files!
               Plus, you can get answers to all your content-related questions.
             </p>
-            <div className="relative h-32">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-32 h-32 text-md font-bold text-white">
-                  <Image
-                    src={"/files.png"}
-                    width={0}
-                    height={0}
-                    alt="Files Image"
-                    className="h-6 w-auto"
-                  />
-                  <div className="absolute -left-6  w-16 h-16 rounded-lg flex items-center justify-center bg-[#FF6B6B] hover:scale-110 transition-transform duration-500">
+
+            {/* Image Container */}
+            <div className="hover:scale-110 transition-transform">
+              <FileOptions />
+            </div>
+          </Card>
+
+          {/* <div className="absolute -left-6  w-16 h-16 rounded-lg flex items-center justify-center bg-[#FF6B6B] hover:scale-110 transition-transform duration-500">
                     PDF
                   </div>
                   <div className="absolute top-20 -left-6 w-16 h-16 rounded-lg flex items-center justify-center bg-[#4DABF7] hover:scale-110 transition-transform duration-500">
@@ -149,11 +147,7 @@ export default function Features() {
                   </div>
                   <div className="absolute -right-6 top-20 w-16 h-16 rounded-lg flex items-center justify-center bg-[#FCC419] hover:scale-110 transition-transform duration-500">
                     EPUB
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card>
+                  </div> */}
 
           {/* Writing Tone */}
           <Card className="bg-[#2C2C2E] border-none rounded-xl p-6">
@@ -186,3 +180,26 @@ export default function Features() {
     </div>
   );
 }
+
+const FileOptions = () => {
+  return (
+    <div className="relative w-full h-40 flex justify-center items-center ">
+      {/* Background Arc (Dashed Lines) */}
+      <div className="absolute w-3/4 h-32 border-dashed border-2 border-gray-500 rounded-full top-0"></div>
+
+      {/* File Icons */}
+      <div className="absolute top-0 left-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
+        PDF
+      </div>
+      <div className="absolute top-1/2 left-14 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg">
+        DOC
+      </div>
+      <div className="absolute top-0 right-4 bg-orange-500 text-white px-4 py-2 rounded-lg shadow-lg">
+        EPUB
+      </div>
+      <div className="absolute top-1/2 right-14 transform translate-x-1/2 bg-gray-500 text-white px-4 py-2 rounded-lg shadow-lg">
+        TXT
+      </div>
+    </div>
+  );
+};
